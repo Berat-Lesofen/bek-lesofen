@@ -68,7 +68,7 @@ h2 { font-size: clamp(2.8rem, 5.2vw, 5rem); line-height: .98; margin-bottom: 0; 
 .about-frame { position: relative; z-index: 1; background: var(--surface); border: 1px solid var(--line); padding: 9px 9px 11px; border-radius: 3px; }
 .about-frame::before { content: ""; position: absolute; top: 12px; left: 12px; right: -12px; bottom: -12px; border: 1px solid var(--line); border-radius: 3px; z-index: -1; pointer-events: none; }
 .about-frame-inner { border: 1px solid var(--line); overflow: hidden; border-radius: 2px; background: var(--bg); }
-.about-frame-inner img { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center; }
+.about-frame-inner img { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center 30%; }
 .about-frame-caption { display: flex; justify-content: space-between; align-items: center; padding: 9px 2px 0; font-size: .62rem; letter-spacing: .14em; font-weight: 700; color: var(--muted); }
 .about-frame-caption span:first-child { color: var(--accent); }
 .large-text { font-size: clamp(1.25rem, 2vw, 1.7rem); line-height: 1.55; letter-spacing: -.025em; max-width: 630px; }
@@ -193,7 +193,8 @@ footer { border-top: 1px solid var(--line); min-height: 95px; color: var(--muted
   .posts-editorial-image { height: 170px; min-height: auto; }
   .aphorism-card { height: auto; min-height: 130px; padding: 1.2rem; }
   .about { grid-template-columns: 1fr; gap: 2rem; }
-  .about-image { width: min(330px, calc(100% - 16px)); margin-bottom: 1.2rem; }
+  .about-image { width: min(320px, calc(100% - 16px)); margin-bottom: 1.2rem; }
+  .about-frame-inner img { aspect-ratio: 2 / 3; object-fit: cover; object-position: center 25%; }
   .section { padding: 76px 0; }
   .section-heading { align-items: start; flex-direction: column; }
   .category-grid { grid-template-columns: 1fr 1fr; }
