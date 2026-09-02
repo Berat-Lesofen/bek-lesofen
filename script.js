@@ -3,8 +3,16 @@ const menuButton = document.querySelector('.menu-toggle');
 const header = document.querySelector('.site-header');
 
 function setCommonContent() {
-  document.querySelector('#logo').innerHTML = `${siteContent.shortName}<span>.</span>`;
-  document.querySelector('#footer-logo').innerHTML = `${siteContent.shortName}<span>.</span>`;
+  const isArticle = body.dataset.page === 'article';
+  const logoPath = isArticle ? '../assets/images/logo.png' : 'assets/images/logo.png';
+  const logoEl = document.querySelector('#logo');
+  if (logoEl) {
+    logoEl.innerHTML = `<span class="logo-frame"><img src="${logoPath}" alt="${siteContent.siteName}" class="logo-img" /></span>`;
+  }
+  const footerLogoEl = document.querySelector('#footer-logo');
+  if (footerLogoEl) {
+    footerLogoEl.innerHTML = `<span class="logo-frame logo-frame-footer"><img src="${logoPath}" alt="${siteContent.siteName}" class="logo-img" /></span>`;
+  }
   document.querySelector('#footer-name').textContent = siteContent.siteName;
   document.querySelector('#footer-tagline').textContent = siteContent.tagline;
   document.querySelector('#year').textContent = new Date().getFullYear();
