@@ -35,9 +35,6 @@
       </nav>
 
       <div class="header-actions">
-        <button class="theme-toggle" type="button" aria-label="Koyu temaya geç">
-          <span aria-hidden="true">☾</span>
-        </button>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Menüyü aç">
           <span></span><span></span>
         </button>
@@ -46,13 +43,21 @@
 
     <main>
       <section class="hero" id="anasayfa">
-        <p class="eyebrow" id="hero-eyebrow">Düşünce ve araştırma notları</p>
-        <h1 id="hero-title">Zihin, Beden ve<br /><em>Sistemler Üzerine Notlar.</em></h1>
-        <div class="hero-text" id="hero-text"><p>Tarihin bıraktığı izler, toplumların çalışma biçimleri, teknolojinin dönüştürdüğü dünya ve bedenin hareket mekanikleri...</p></div>
-        <a class="button" href="#yazilar" id="hero-button"></a>
-        <div class="hero-orbit" aria-hidden="true">
-          <div class="orbit-circle"></div>
-          <div class="orbit-dot"></div>
+        <div class="hero-main">
+          <p class="eyebrow" id="hero-eyebrow">Düşünce ve araştırma notları</p>
+          <h1 id="hero-title">Zihin, Beden ve<br /><em>Sistemler Üzerine Notlar.</em></h1>
+          <div class="hero-text" id="hero-text"><p>Tarihin bıraktığı izler, toplumların çalışma biçimleri, teknolojinin dönüştürdüğü dünya ve bedenin hareket mekanikleri...</p></div>
+          <a class="button" href="#yazilar" id="hero-button"></a>
+        </div>
+        <div class="hero-profile">
+          <div class="hero-avatar-frame">
+            <img src="assets/images/profile.jpg" alt="Bek Lesofen" class="hero-avatar" />
+            <span class="hero-avatar-dot" aria-hidden="true"></span>
+          </div>
+          <div class="hero-profile-info">
+            <span class="hero-profile-name">Bek Lesofen</span>
+            <span class="hero-profile-desc">Araştırıyor. Düşünüyor. Paylaşıyor.</span>
+          </div>
         </div>
       </section>
 
@@ -80,12 +85,27 @@
       </section>
 
       <section class="posts section" id="yazilar">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow" id="posts-eyebrow"></p>
-            <h2 id="posts-title"></h2>
+        <div class="posts-header-editorial">
+          <div class="posts-heading-col">
+            <div>
+              <p class="eyebrow" id="posts-eyebrow"></p>
+              <h2 id="posts-title"></h2>
+            </div>
+            <div class="filter-controls" id="filter-controls" aria-label="Yazı kategorileri"></div>
           </div>
-          <div class="filter-controls" id="filter-controls" aria-label="Yazı kategorileri"></div>
+
+          <div class="posts-side-editorial">
+            <div class="posts-editorial-image">
+              <img src="assets/images/writing.jpg" alt="Bek Lesofen çalışma masasında not alırken" loading="lazy" />
+            </div>
+            <aside class="aphorism-card" aria-label="Vecize">
+              <span class="aphorism-label">Vecizeler</span>
+              <blockquote class="aphorism-quote">
+                “İnsan, dünyayı yalnızca olduğu haliyle değil; ona verdiği anlam üzerinden de yaşar.”
+              </blockquote>
+              <cite class="aphorism-author">— Bek Lesofen</cite>
+            </aside>
+          </div>
         </div>
 
         <div class="post-grid" id="post-grid"></div>

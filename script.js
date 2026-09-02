@@ -1,5 +1,4 @@
 const body = document.body;
-const themeButton = document.querySelector('.theme-toggle');
 const menuButton = document.querySelector('.menu-toggle');
 const header = document.querySelector('.site-header');
 
@@ -25,7 +24,17 @@ function renderHome() {
   document.querySelector('#about-text').textContent = siteContent.about.text;
   document.querySelector('#about-text').insertAdjacentHTML('afterend', `<p class="about-detail">${siteContent.about.detail}</p>`);
   document.querySelector('#tags').innerHTML = siteContent.about.tags.map((tag) => `<span>${tag}</span>`).join('');
-  document.querySelector('#about-image').innerHTML = `<img src="${siteContent.about.image.src}" alt="${siteContent.about.image.alt}" loading="lazy">`;
+  document.querySelector('#about-image').innerHTML = `
+    <div class="about-frame">
+      <div class="about-frame-inner">
+        <img src="${siteContent.about.image.src}" alt="${siteContent.about.image.alt}" loading="lazy">
+      </div>
+      <div class="about-frame-caption">
+        <span>01 / PORTRAIT</span>
+        <span>${siteContent.siteName.toUpperCase()}</span>
+      </div>
+    </div>
+  `;
 
   document.querySelector('#categories-eyebrow').textContent = siteContent.categories.eyebrow;
   document.querySelector('#categories-title').textContent = siteContent.categories.title;
@@ -93,7 +102,11 @@ function renderHome() {
   document.querySelector('#contact-title').innerHTML = siteContent.contact.title;
   const emailLink = document.querySelector('#email-link');
   emailLink.href = `mailto:${siteContent.contact.email}`;
-  emailLink.innerHTML = `${siteContent.contact.email} <span aria-hidden="true">↗</span>`;
+  emailLink.innerHTML = `
+    <svg class="email-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+    <span class="email-text">${siteContent.contact.email}</span>
+    <span class="email-arrow" aria-hidden="true">↗</span>
+  `;
 }
 
 function renderArticle() {
@@ -115,27 +128,10 @@ function renderArticle() {
   document.querySelector('#article-content').innerHTML = post.article.sections.map((section) => `
     <section class="article-section">
       <h2>${section.heading}</h2>
-      ${section.paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join('')}
+      ${section.paragraphs.map((paragraph) => /^\s*<(div|blockquote|table|ul|ol|h3|h4|figure|hr)/i.test(paragraph) ? paragraph : `<p>${paragraph}</p>`).join('')}
     </section>
   `).join('');
 }
-
-// Daha önce seçilen tema varsa sayfa açıldığında geri yüklenir.
-if (localStorage.getItem('theme') === 'dark') {
-  body.classList.add('dark');
-}
-
-function updateThemeButton() {
-  const isDark = body.classList.contains('dark');
-  themeButton.querySelector('span').textContent = isDark ? '☀' : '☾';
-  themeButton.setAttribute('aria-label', isDark ? 'Açık temaya geç' : 'Koyu temaya geç');
-}
-
-themeButton.addEventListener('click', () => {
-  body.classList.toggle('dark');
-  localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
-  updateThemeButton();
-});
 
 menuButton.addEventListener('click', () => {
   const isOpen = header.classList.toggle('nav-open');
@@ -153,4 +149,3 @@ document.querySelectorAll('.desktop-nav a').forEach((link) => {
 setCommonContent();
 if (body.dataset.page === 'article') renderArticle();
 else renderHome();
-updateThemeButton();
