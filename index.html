@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Kişisel web sitesi." />
+    <title>Kişisel Web Sitesi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="#anasayfa" aria-label="Ana sayfaya git" id="logo">BL<span>.</span></a>
+
+      <nav class="desktop-nav" aria-label="Ana menü">
+        <a href="#hakkimda">Hakkımda</a>
+        <a href="#kategoriler">Konular</a>
+        <a href="#yazilar">Yazılar</a>
+        <a href="#iletisim">İletişim</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-label="Koyu temaya geç">
+          <span aria-hidden="true">☾</span>
+        </button>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Menüyü aç">
+          <span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="anasayfa">
+        <p class="eyebrow" id="hero-eyebrow"></p>
+        <h1 id="hero-title"></h1>
+        <div class="hero-text" id="hero-text"></div>
+        <a class="button" href="#hakkimda" id="hero-button"></a>
+        <div class="hero-orbit" aria-hidden="true">
+          <div class="orbit-circle"></div>
+          <div class="orbit-dot"></div>
+        </div>
+      </section>
+
+      <section class="categories section" id="kategoriler">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow" id="categories-eyebrow"></p>
+            <h2 id="categories-title"></h2>
+          </div>
+          <p class="section-intro" id="categories-intro"></p>
+        </div>
+        <div class="category-grid" id="category-grid"></div>
+      </section>
+
+      <section class="about section" id="hakkimda">
+        <div>
+          <p class="eyebrow" id="about-eyebrow"></p>
+          <h2 id="about-title"></h2>
+        </div>
+        <div class="about-content">
+          <p class="large-text" id="about-text"></p>
+          <div class="tags" id="tags" aria-label="İlgi alanları"></div>
+        </div>
+      </section>
+
+      <section class="posts section" id="yazilar">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow" id="posts-eyebrow"></p>
+            <h2 id="posts-title"></h2>
+          </div>
+          <div class="filter-controls" id="filter-controls" aria-label="Yazı kategorileri"></div>
+        </div>
+
+        <div class="post-grid" id="post-grid"></div>
+      </section>
+
+      <section class="contact section" id="iletisim">
+        <p class="eyebrow" id="contact-eyebrow"></p>
+        <h2 id="contact-title"></h2>
+        <a class="email-link" id="email-link"></a>
+      </section>
+    </main>
+
+    <footer>
+      <a class="logo" href="#anasayfa" id="footer-logo">BL<span>.</span></a>
+      <p>© <span id="year"></span> <span id="footer-name"></span> · <span id="footer-tagline"></span></p>
+      <a href="#anasayfa">Yukarı çık ↑</a>
+    </footer>
+
+    <script src="content.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

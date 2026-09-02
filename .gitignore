@@ -1,0 +1,20 @@
+# İşletim sistemi dosyaları
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Gizli yerel ayarlar ve anahtarlar
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Gelecekte eklenebilecek bağımlılık ve derleme çıktıları
+node_modules/
+dist/
+build/
+
+# Günlük dosyaları
+*.log
+npm-debug.log*
