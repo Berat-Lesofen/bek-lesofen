@@ -534,7 +534,78 @@ footer {
   .back-link { margin-bottom: 3rem; }
   .article-intro { margin-bottom: 2.5rem; }
   footer { min-height: 150px; flex-wrap: wrap; align-content: center; gap: .6rem 1.3rem; }
-  .reveal-on-scroll { transform: translateY(14px); transition-duration: .6s; }
+
+  /* Mobile Animation Refinements */
+  .reveal-on-scroll {
+    transform: translateY(10px);
+    transition-duration: .38s;
+    transition-delay: calc(var(--reveal-index, 0) * 20ms);
+  }
+
+  .hero-fade-1 { animation-duration: .5s; }
+  .hero-fade-2 { animation-duration: .55s; animation-delay: .05s; }
+  .hero-fade-3 { animation-duration: .55s; animation-delay: .1s; }
+  .hero-fade-4 { animation-duration: .55s; animation-delay: .15s; }
+  .hero-profile { animation-duration: .6s; animation-delay: .1s; }
+  .article { animation-duration: .55s; }
+
+  .site-header.scrolled {
+    background: rgba(23, 23, 22, 0.94);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+  }
+
+  .hero-avatar-dot {
+    animation-name: amberBreathingMobile;
+  }
+
+  /* Disable hover scale & lifts on touch */
+  .post-card:hover { transform: none; box-shadow: none; background: var(--bg); }
+  .post-card.featured-post:hover { background: var(--surface); }
+  .post-card:hover .post-card-image img { transform: none; }
+  .post-card:hover a span { transform: none; }
+  .about-frame:hover { transform: none; box-shadow: none; }
+  .about-frame:hover .about-frame-inner img { transform: none; }
+  .posts-editorial-image:hover { transform: none; box-shadow: none; border-color: var(--line); }
+  .posts-editorial-image:hover img { transform: none; }
+  .aphorism-card:hover { transform: none; box-shadow: none; border-color: var(--line); }
+  .category-card:hover { transform: none; box-shadow: none; background: var(--bg); }
+  .category-card:hover .category-arrow { transform: none; }
+  .button:hover { transform: none; box-shadow: none; }
+  .email-link:hover { transform: none; }
+  .email-link:hover .email-arrow { transform: none; }
+  .article-image:hover img { transform: none; }
+  .hero-profile:hover .hero-avatar-frame { transform: none; box-shadow: none; }
+  .logo:hover .logo-frame { transform: none; }
+}
+
+@keyframes amberBreathingMobile {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(242, 121, 93, 0);
+  }
+  50% {
+    box-shadow: 0 0 7px 1.5px rgba(242, 121, 93, 0.22);
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .post-card:hover { transform: none; box-shadow: none; }
+  .post-card:hover .post-card-image img { transform: none; }
+  .post-card:hover a span { transform: none; }
+  .about-frame:hover { transform: none; box-shadow: none; }
+  .about-frame:hover .about-frame-inner img { transform: none; }
+  .posts-editorial-image:hover { transform: none; box-shadow: none; }
+  .posts-editorial-image:hover img { transform: none; }
+  .aphorism-card:hover { transform: none; box-shadow: none; }
+  .category-card:hover { transform: none; box-shadow: none; }
+  .category-card:hover .category-arrow { transform: none; }
+  .button:hover { transform: none; box-shadow: none; }
+  .email-link:hover { transform: none; }
+  .email-link:hover .email-arrow { transform: none; }
+  .article-image:hover img { transform: none; }
+  .hero-profile:hover .hero-avatar-frame { transform: none; }
+  .logo:hover .logo-frame { transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

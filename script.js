@@ -24,6 +24,7 @@ function initScrollReveal() {
     return;
   }
 
+  const isMobile = window.innerWidth <= 720;
   const observer = new IntersectionObserver(
     (entries, obs) => {
       entries.forEach((entry) => {
@@ -33,7 +34,10 @@ function initScrollReveal() {
         }
       });
     },
-    { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+    {
+      threshold: isMobile ? 0.02 : 0.08,
+      rootMargin: isMobile ? '0px 0px -15px 0px' : '0px 0px -40px 0px'
+    }
   );
 
   document.querySelectorAll('.reveal-on-scroll:not(.is-visible)').forEach((el) => {
@@ -47,6 +51,7 @@ function initHeroParallax() {
   if (!hero || !heroProfile) return;
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.innerWidth <= 900 || window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
 
   hero.addEventListener('mousemove', (e) => {
     if (window.innerWidth <= 900) return;
