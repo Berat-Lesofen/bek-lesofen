@@ -3,33 +3,34 @@ const themeButton = document.querySelector('.theme-toggle');
 const menuButton = document.querySelector('.menu-toggle');
 const header = document.querySelector('.site-header');
 
-// content.js içindeki bilgileri sayfaya yerleştirir.
-document.title = `${siteContent.siteName} | Kişisel Web Sitesi`;
-document.querySelector('meta[name="description"]').content = siteContent.description;
-document.querySelector('#logo').innerHTML = `${siteContent.shortName}<span>.</span>`;
-document.querySelector('#footer-logo').innerHTML = `${siteContent.shortName}<span>.</span>`;
-document.querySelector('#footer-name').textContent = siteContent.siteName;
-document.querySelector('#footer-tagline').textContent = siteContent.tagline;
+function setCommonContent() {
+  document.querySelector('#logo').innerHTML = `${siteContent.shortName}<span>.</span>`;
+  document.querySelector('#footer-logo').innerHTML = `${siteContent.shortName}<span>.</span>`;
+  document.querySelector('#footer-name').textContent = siteContent.siteName;
+  document.querySelector('#footer-tagline').textContent = siteContent.tagline;
+  document.querySelector('#year').textContent = new Date().getFullYear();
+}
 
-document.querySelector('#hero-eyebrow').textContent = siteContent.hero.eyebrow;
-document.querySelector('#hero-title').innerHTML = siteContent.hero.title;
-document.querySelector('#hero-text').innerHTML = siteContent.hero.paragraphs
-  .map((paragraph) => `<p>${paragraph}</p>`)
-  .join('');
-document.querySelector('#hero-button').innerHTML = siteContent.hero.button;
+function renderHome() {
+  document.title = `${siteContent.siteName} | ${siteContent.tagline}`;
+  document.querySelector('meta[name="description"]').content = siteContent.description;
 
-document.querySelector('#about-eyebrow').textContent = siteContent.about.eyebrow;
-document.querySelector('#about-title').innerHTML = siteContent.about.title;
-document.querySelector('#about-text').textContent = siteContent.about.text;
-document.querySelector('#about-text').insertAdjacentHTML('afterend', `<p class="about-detail">${siteContent.about.detail}</p>`);
-document.querySelector('#tags').innerHTML = siteContent.about.tags
-  .map((tag) => `<span>${tag}</span>`)
-  .join('');
+  document.querySelector('#hero-eyebrow').textContent = siteContent.hero.eyebrow;
+  document.querySelector('#hero-title').innerHTML = siteContent.hero.title;
+  document.querySelector('#hero-text').innerHTML = siteContent.hero.paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join('');
+  document.querySelector('#hero-button').innerHTML = siteContent.hero.button;
 
-document.querySelector('#categories-eyebrow').textContent = siteContent.categories.eyebrow;
-document.querySelector('#categories-title').textContent = siteContent.categories.title;
-document.querySelector('#categories-intro').textContent = siteContent.categories.intro;
-document.querySelector('#category-grid').innerHTML = siteContent.categories.items
+  document.querySelector('#about-eyebrow').textContent = siteContent.about.eyebrow;
+  document.querySelector('#about-title').innerHTML = siteContent.about.title;
+  document.querySelector('#about-text').textContent = siteContent.about.text;
+  document.querySelector('#about-text').insertAdjacentHTML('afterend', `<p class="about-detail">${siteContent.about.detail}</p>`);
+  document.querySelector('#tags').innerHTML = siteContent.about.tags.map((tag) => `<span>${tag}</span>`).join('');
+  document.querySelector('#about-image').innerHTML = `<img src="${siteContent.about.image.src}" alt="${siteContent.about.image.alt}" loading="lazy">`;
+
+  document.querySelector('#categories-eyebrow').textContent = siteContent.categories.eyebrow;
+  document.querySelector('#categories-title').textContent = siteContent.categories.title;
+  document.querySelector('#categories-intro').textContent = siteContent.categories.intro;
+  document.querySelector('#category-grid').innerHTML = siteContent.categories.items
   .map((category, index) => `
     <a class="category-card" href="#yazilar" data-category-link="${category.name}">
       <span class="category-number">0${index + 1}</span>
@@ -38,44 +39,45 @@ document.querySelector('#category-grid').innerHTML = siteContent.categories.item
       <span class="category-arrow" aria-hidden="true">→</span>
     </a>
   `)
-  .join('');
+    .join('');
 
-document.querySelector('#posts-eyebrow').textContent = siteContent.posts.eyebrow;
-document.querySelector('#posts-title').textContent = siteContent.posts.title;
-const postGrid = document.querySelector('#post-grid');
-const filterControls = document.querySelector('#filter-controls');
+  document.querySelector('#posts-eyebrow').textContent = siteContent.posts.eyebrow;
+  document.querySelector('#posts-title').textContent = siteContent.posts.title;
+  const postGrid = document.querySelector('#post-grid');
+  const filterControls = document.querySelector('#filter-controls');
 
-function renderPosts(activeCategory = 'Tümü') {
+  function renderPosts(activeCategory = 'Tümü') {
   const visiblePosts = activeCategory === 'Tümü'
     ? siteContent.posts.items
     : siteContent.posts.items.filter((post) => post.category === activeCategory);
 
-  postGrid.innerHTML = visiblePosts
+    postGrid.innerHTML = visiblePosts
     .map((post) => `
-    <article class="post-card${post.featured ? ' featured-post' : ''}">
+    <article class="post-card${post.featured ? ' featured-post' : ''}${post.image.src ? ' has-image' : ''}">
+      ${post.image.src ? `<figure class="post-card-image"><img src="${post.image.src}" alt="${post.image.alt}" loading="lazy"></figure>` : ''}
       <p class="post-meta">${post.meta}</p>
       <h3>${post.title}</h3>
       <p>${post.text}</p>
-      <a href="#iletisim" aria-label="Yazı hakkında iletişime geç">Oku <span aria-hidden="true">→</span></a>
+      <a href="${post.url}" aria-label="${post.title} yazısının devamını oku">Devamını oku <span aria-hidden="true">→</span></a>
     </article>
   `)
-  .join('');
-}
+      .join('');
+  }
 
-const filters = ['Tümü', ...siteContent.categories.items.map((category) => category.name)];
-filterControls.innerHTML = filters
+  const filters = ['Tümü', ...siteContent.categories.items.map((category) => category.name)];
+  filterControls.innerHTML = filters
   .map((filter) => `<button class="filter-button${filter === 'Tümü' ? ' active' : ''}" type="button" data-filter="${filter}">${filter}</button>`)
-  .join('');
+    .join('');
 
-filterControls.addEventListener('click', (event) => {
+  filterControls.addEventListener('click', (event) => {
   const button = event.target.closest('.filter-button');
   if (!button) return;
   document.querySelectorAll('.filter-button').forEach((item) => item.classList.remove('active'));
   button.classList.add('active');
   renderPosts(button.dataset.filter);
-});
+  });
 
-document.querySelectorAll('[data-category-link]').forEach((link) => {
+  document.querySelectorAll('[data-category-link]').forEach((link) => {
   link.addEventListener('click', () => {
     const category = link.dataset.categoryLink;
     document.querySelectorAll('.filter-button').forEach((item) => {
@@ -83,15 +85,40 @@ document.querySelectorAll('[data-category-link]').forEach((link) => {
     });
     renderPosts(category);
   });
-});
+  });
 
-renderPosts();
+  renderPosts();
 
-document.querySelector('#contact-eyebrow').textContent = siteContent.contact.eyebrow;
-document.querySelector('#contact-title').innerHTML = siteContent.contact.title;
-const emailLink = document.querySelector('#email-link');
-emailLink.href = `mailto:${siteContent.contact.email}`;
-emailLink.innerHTML = `${siteContent.contact.email} <span aria-hidden="true">↗</span>`;
+  document.querySelector('#contact-eyebrow').textContent = siteContent.contact.eyebrow;
+  document.querySelector('#contact-title').innerHTML = siteContent.contact.title;
+  const emailLink = document.querySelector('#email-link');
+  emailLink.href = `mailto:${siteContent.contact.email}`;
+  emailLink.innerHTML = `${siteContent.contact.email} <span aria-hidden="true">↗</span>`;
+}
+
+function renderArticle() {
+  const post = siteContent.posts.items.find((item) => item.slug === body.dataset.postSlug);
+  if (!post) return;
+  document.title = `${post.title} | ${siteContent.siteName}`;
+  document.querySelector('meta[name="description"]').content = post.text;
+  document.querySelector('#article-category').textContent = post.category;
+  document.querySelector('#article-title').textContent = post.title;
+  document.querySelector('#article-date').textContent = post.date;
+  document.querySelector('#article-reading-time').textContent = post.readingTime;
+  document.querySelector('#article-intro').textContent = post.article.intro;
+  const image = document.querySelector('#article-image');
+  if (post.image.src) {
+    image.innerHTML = `<img src="../${post.image.src}" alt="${post.image.alt}" loading="lazy">`;
+  } else {
+    image.hidden = true;
+  }
+  document.querySelector('#article-content').innerHTML = post.article.sections.map((section) => `
+    <section class="article-section">
+      <h2>${section.heading}</h2>
+      ${section.paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join('')}
+    </section>
+  `).join('');
+}
 
 // Daha önce seçilen tema varsa sayfa açıldığında geri yüklenir.
 if (localStorage.getItem('theme') === 'dark') {
@@ -123,5 +150,7 @@ document.querySelectorAll('.desktop-nav a').forEach((link) => {
   });
 });
 
-document.querySelector('#year').textContent = new Date().getFullYear();
+setCommonContent();
+if (body.dataset.page === 'article') renderArticle();
+else renderHome();
 updateThemeButton();

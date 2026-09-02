@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://berat-lesofen.github.io/bek-lesofen/sitemap.xml
