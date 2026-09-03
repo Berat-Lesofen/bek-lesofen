@@ -461,6 +461,8 @@ footer {
 .article h1 { font-size: clamp(3rem, 6.2vw, 5.6rem); margin: 0 0 1.7rem; }
 .article-meta { display: flex; gap: .55rem; align-items: center; color: var(--muted); font-size: .82rem; margin-bottom: 2.5rem; }
 .article-intro { border-left: 2px solid var(--accent); padding-left: 1.25rem; font-family: "Playfair Display", serif; font-size: clamp(1.35rem, 2.5vw, 1.85rem); letter-spacing: -.025em; line-height: 1.5; margin: 0 0 3.5rem; }
+.article-intro em { font-style: italic; color: var(--accent); }
+.article-intro strong { font-weight: 700; color: var(--text); }
 .article-image {
   margin: 0 0 3.5rem;
   border: 1px solid var(--line);
@@ -486,8 +488,28 @@ footer {
 .article-section strong { color: var(--text); font-weight: 600; }
 .article-section blockquote { border-left: 2px solid var(--accent); margin: 1.8rem 0; padding: .6rem 0 .6rem 1.3rem; font-family: "Playfair Display", serif; font-style: italic; color: var(--text); font-size: clamp(1.05rem, 1.6vw, 1.25rem); line-height: 1.6; }
 .article-section blockquote strong { color: var(--text); }
-.article-section ul { color: var(--muted); margin: 1rem 0 1.5rem 1.4rem; padding: 0; }
+.article-section ul, .article-section ol { color: var(--muted); margin: 1rem 0 1.5rem 1.4rem; padding: 0; }
 .article-section li { margin-bottom: .5rem; line-height: 1.65; }
+.article-section pre {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 1.1rem 1.3rem;
+  overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: .88rem;
+  color: var(--text);
+  line-height: 1.6;
+  margin: 1.6rem 0;
+}
+.article-section code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: .9em;
+  color: var(--accent);
+}
+.article-section pre code {
+  color: var(--text);
+}
 .article-table-wrapper { overflow-x: auto; margin: 2rem 0; border: 1px solid var(--line); border-radius: 4px; }
 .article-section table { width: 100%; border-collapse: collapse; font-size: .9rem; background: var(--bg); }
 .article-section th, .article-section td { padding: .85rem 1.1rem; border: 1px solid var(--line); text-align: left; }

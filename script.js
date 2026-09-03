@@ -179,7 +179,7 @@ function renderArticle() {
   document.querySelector('#article-title').textContent = post.title;
   document.querySelector('#article-date').textContent = post.date;
   document.querySelector('#article-reading-time').textContent = post.readingTime;
-  document.querySelector('#article-intro').textContent = post.article.intro;
+  document.querySelector('#article-intro').innerHTML = post.article.intro;
   const image = document.querySelector('#article-image');
   if (post.image.src) {
     image.innerHTML = `<img src="../${post.image.src}" alt="${post.image.alt}" loading="lazy">`;
@@ -189,7 +189,7 @@ function renderArticle() {
   document.querySelector('#article-content').innerHTML = post.article.sections.map((section, idx) => `
     <section class="article-section reveal-on-scroll" style="--reveal-index: ${idx};">
       <h2>${section.heading}</h2>
-      ${section.paragraphs.map((paragraph) => /^\s*<(div|blockquote|table|ul|ol|h3|h4|figure|hr)/i.test(paragraph) ? paragraph : `<p>${paragraph}</p>`).join('')}
+      ${section.paragraphs.map((paragraph) => /^\s*<(div|blockquote|table|ul|ol|h3|h4|figure|hr|pre)/i.test(paragraph) ? paragraph : `<p>${paragraph}</p>`).join('')}
     </section>
   `).join('');
 
