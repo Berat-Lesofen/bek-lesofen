@@ -4,11 +4,11 @@ const header = document.querySelector('.site-header');
 
 function setCommonContent() {
   const isArticle = body.dataset.page === 'article';
-  const brandLogoPath = isArticle ? '../assets/images/bek-lesofen-navbar.png' : 'assets/images/bek-lesofen-navbar.png';
+  const brandLogoPath = isArticle ? '../assets/images/bek-lesofen-navbar2.png' : 'assets/images/bek-lesofen-navbar2.png';
   const footerLogoPath = isArticle ? '../assets/images/yenilogo.png' : 'assets/images/yenilogo.png';
   const logoEl = document.querySelector('#logo');
   if (logoEl) {
-    logoEl.innerHTML = `<img src="${brandLogoPath}" alt="${siteContent.siteName}" class="logo-navbar-img" width="189" height="52" />`;
+    logoEl.innerHTML = `<img src="${brandLogoPath}" alt="${siteContent.siteName}" class="logo-navbar-img" width="204" height="68" />`;
   }
   const footerLogoEl = document.querySelector('#footer-logo');
   if (footerLogoEl) {
