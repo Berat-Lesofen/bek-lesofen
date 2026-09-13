@@ -4,14 +4,15 @@ const header = document.querySelector('.site-header');
 
 function setCommonContent() {
   const isArticle = body.dataset.page === 'article';
-  const logoPath = isArticle ? '../assets/images/yenilogo.png' : 'assets/images/yenilogo.png';
+  const brandLogoPath = isArticle ? '../assets/images/BEK%20LESOFEN.png' : 'assets/images/BEK%20LESOFEN.png';
+  const footerLogoPath = isArticle ? '../assets/images/yenilogo.png' : 'assets/images/yenilogo.png';
   const logoEl = document.querySelector('#logo');
   if (logoEl) {
-    logoEl.innerHTML = `<span class="logo-frame"><img src="${logoPath}" alt="${siteContent.siteName}" class="logo-img" /></span>`;
+    logoEl.innerHTML = `<span class="logo-brand"><img src="${brandLogoPath}" alt="${siteContent.siteName}" class="logo-brand-img" /></span>`;
   }
   const footerLogoEl = document.querySelector('#footer-logo');
   if (footerLogoEl) {
-    footerLogoEl.innerHTML = `<span class="logo-frame logo-frame-footer"><img src="${logoPath}" alt="${siteContent.siteName}" class="logo-img" /></span>`;
+    footerLogoEl.innerHTML = `<span class="logo-frame logo-frame-footer"><img src="${footerLogoPath}" alt="${siteContent.siteName}" class="logo-img" /></span>`;
   }
   document.querySelector('#footer-name').textContent = siteContent.siteName;
   document.querySelector('#footer-tagline').textContent = siteContent.tagline;
