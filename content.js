@@ -613,8 +613,73 @@ const siteContent = {
     ],
   },
 
+  laboratory: {
+    eyebrow: '04 — Dijital Laboratuvar',
+    title: 'DİJİTAL LABORATUVAR',
+    subtitle: 'Fikirlerin, merakın ve kodun buluştuğu yer.',
+    description: 'Buradaki projeler, yazıların dışında düşündüğüm fikirleri interaktif deneyimlere dönüştürme çabalarım.',
+    cover: {
+      src: 'assets/projects/lab-cover.png',
+      alt: 'Bek Lesofen Dijital Laboratuvar — Kinetika, Fikir Atlası, Karar Atlası ve Interactive Timeline ekosistem kapağı',
+    },
+    items: [
+      {
+        number: '01',
+        title: 'LESOFEN KINETIKA',
+        tagline: 'Human Movement · Anatomy · Biomechanics',
+        description: 'İnsan hareketini anatomi, kinematik ve biyomekanik üzerinden inceleyen interaktif bir dijital laboratuvar.',
+        tags: ['ANATOMY', 'MOVEMENT', 'BIOMECHANICS'],
+        url: 'https://lesofen-kinetika.vercel.app/',
+        buttonText: 'Projeyi İncele',
+        image: {
+          src: 'assets/projects/kinetika.png',
+          alt: 'Lesofen Kinetika interaktif anatomi ve biyomekanik laboratuvarı ekranı',
+        },
+      },
+      {
+        number: '02',
+        title: 'FİKİR ATLASI',
+        tagline: 'Bir sorudan diğerine.',
+        description: 'Felsefe, sosyoloji ve insan kavramlarını düşünce deneyleri, kavram haritaları ve interaktif keşif deneyimi üzerinden ele alan dijital bir düşünce alanı.',
+        tags: ['PHILOSOPHY', 'SOCIOLOGY', 'IDEAS'],
+        url: 'https://fikir-atlasi.vercel.app/',
+        buttonText: 'Projeyi İncele',
+        image: {
+          src: 'assets/projects/fikir-atlasi.png',
+          alt: 'Fikir Atlası interaktif felsefe, sosyoloji ve kavram haritası ekranı',
+        },
+      },
+      {
+        number: '03',
+        title: 'KARAR / NEDENSELLİK ATLASI',
+        tagline: 'Seçimler, nedenler ve sonuçlar.',
+        description: 'Karar verme süreçlerini nedensellik, etik gerilimler ve olası sonuç zincirleri üzerinden deneyimlemeye yönelik deneysel bir dijital laboratuvar.',
+        tags: ['CAUSALITY', 'DECISION', 'ETHICS'],
+        url: 'https://karar-two.vercel.app/',
+        buttonText: 'Projeyi İncele',
+        image: {
+          src: 'assets/projects/karar.png',
+          alt: 'Nedensellik Atlası karar motoru ve neden-sonuç analizi ekranı',
+        },
+      },
+      {
+        number: '04',
+        title: 'INTERACTIVE TIMELINE',
+        tagline: 'Türk Tarihi — Zamanın İzinde.',
+        description: 'Tarihi olayları zaman, coğrafya ve anlatı ile birlikte keşfetmeye yönelik interaktif dijital müze ve zaman çizelgesi.',
+        tags: ['HISTORY', 'TIMELINE', 'MAP', 'INTERACTIVE MUSEUM'],
+        url: 'https://interactive-timeline-two.vercel.app/',
+        buttonText: 'Projeyi İncele',
+        image: {
+          src: 'assets/projects/timeline.png',
+          alt: 'Türk Tarihi interaktif zaman çizelgesi ve dijital müze ekranı',
+        },
+      },
+    ],
+  },
+
   contact: {
-    eyebrow: '04 — İletişim',
+    eyebrow: '05 — İletişim',
     title: 'Bir fikrin mi var?<br><em>Konuşalım.</em>',
     email: 'beklesofen@gmail.com',
   },

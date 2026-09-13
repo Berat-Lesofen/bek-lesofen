@@ -156,6 +156,57 @@ function renderHome() {
 
   renderPosts();
 
+  if (siteContent.laboratory) {
+    const labEyebrow = document.querySelector('#lab-eyebrow');
+    const labTitle = document.querySelector('#lab-title');
+    const labSubtitle = document.querySelector('#lab-subtitle');
+    const labIntro = document.querySelector('#lab-intro');
+    const labCover = document.querySelector('#lab-cover');
+    const projectGrid = document.querySelector('#project-grid');
+
+    if (labEyebrow) labEyebrow.textContent = siteContent.laboratory.eyebrow;
+    if (labTitle) labTitle.textContent = siteContent.laboratory.title;
+    if (labSubtitle) labSubtitle.textContent = siteContent.laboratory.subtitle;
+    if (labIntro) labIntro.textContent = siteContent.laboratory.description;
+
+    if (labCover && siteContent.laboratory.cover) {
+      labCover.innerHTML = `
+        <img src="${siteContent.laboratory.cover.src}" alt="${siteContent.laboratory.cover.alt}" loading="lazy" decoding="async" width="2048" height="768" />
+      `;
+    }
+
+    if (projectGrid) {
+      projectGrid.innerHTML = siteContent.laboratory.items
+        .map((project, index) => `
+          <article class="project-card reveal-on-scroll" style="--reveal-index: ${index};">
+            <a class="project-card-cover-link" href="${project.url}" target="_blank" rel="noopener noreferrer" aria-label="${project.title} projesini yeni sekmede aç"></a>
+            <figure class="project-preview">
+              <img src="${project.image.src}" alt="${project.image.alt}" loading="lazy" decoding="async" width="1280" height="720">
+            </figure>
+            <div class="project-card-body">
+              <div class="project-card-header">
+                <span class="project-number">${project.number}</span>
+                <span class="project-badge"><span class="project-badge-dot" aria-hidden="true"></span> Canlı Proje</span>
+              </div>
+              <h3 class="project-title">${project.title}</h3>
+              <p class="project-tagline">${project.tagline}</p>
+              <p class="project-description">${project.description}</p>
+              <div class="project-tags">
+                ${project.tags.map((tag) => `<span>${tag}</span>`).join('')}
+              </div>
+              <div class="project-action-wrapper">
+                <span class="project-action-button">
+                  <span>${project.buttonText}</span>
+                  <svg class="external-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </span>
+              </div>
+            </div>
+          </article>
+        `)
+        .join('');
+    }
+  }
+
   document.querySelector('#contact-eyebrow').textContent = siteContent.contact.eyebrow;
   document.querySelector('#contact-title').innerHTML = siteContent.contact.title;
   const emailLink = document.querySelector('#email-link');
