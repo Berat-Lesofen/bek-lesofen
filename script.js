@@ -4,7 +4,7 @@ const header = document.querySelector('.site-header');
 
 function setCommonContent() {
   const isArticle = body.dataset.page === 'article';
-  const logoPath = isArticle ? '../assets/images/logo.png' : 'assets/images/logo.png';
+  const logoPath = isArticle ? '../assets/images/yenilogo.png' : 'assets/images/yenilogo.png';
   const logoEl = document.querySelector('#logo');
   if (logoEl) {
     logoEl.innerHTML = `<span class="logo-frame"><img src="${logoPath}" alt="${siteContent.siteName}" class="logo-img" /></span>`;

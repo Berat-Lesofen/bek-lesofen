@@ -66,7 +66,7 @@ footer {
   align-items: center;
   justify-content: center;
   position: relative;
-  border-radius: 13px;
+  border-radius: 16px;
   padding: 2px;
   background: radial-gradient(circle at 50% 50%, rgba(242, 121, 93, 0.07) 0%, rgba(37, 37, 35, 0.35) 70%, transparent 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -75,9 +75,9 @@ footer {
 }
 .logo-img {
   display: block;
-  width: 52px;
-  height: 52px;
-  border-radius: 11px;
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
   object-fit: contain;
   transition: opacity .25s ease;
 }
@@ -729,8 +729,8 @@ footer {
 @media (max-width: 720px) {
   .site-header, footer, .hero, .section { width: min(100% - 36px, 1180px); }
   .site-header { height: 72px; padding: 0; }
-  .logo-img { width: 44px; height: 44px; border-radius: 9px; }
-  .logo-frame { border-radius: 11px; padding: 1.5px; }
+  .logo-img { width: 52px; height: 52px; border-radius: 11px; }
+  .logo-frame { border-radius: 13px; padding: 1.5px; }
   .desktop-nav { display: none; }
   .menu-toggle { display: block; }
   .site-header.nav-open { position: relative; }
