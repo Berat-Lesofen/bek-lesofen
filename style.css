@@ -65,20 +65,20 @@ footer {
   position: relative;
   display: inline-flex;
   align-items: center;
-  width: 168px;
-  height: 75px;
+  width: 178px;
+  height: 62px;
   overflow: hidden;
   line-height: 0;
   transition: transform .25s cubic-bezier(0.16, 1, 0.3, 1), filter .25s ease, opacity .25s ease;
 }
 .logo-brand-img {
   position: absolute;
-  width: 189px;
-  height: 189px;
-  left: -13.2px;
-  top: -42.8px;
+  width: 194px;
+  height: 194px;
+  left: -13.4px;
+  top: -58.5px;
   max-width: none;
-  clip-path: polygon(0% 0%, 100% 0%, 100% 62%, 42.5% 62%, 42.5% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 62%, 42% 62%, 42% 100%, 0% 100%);
   pointer-events: none;
   user-select: none;
 }
@@ -750,8 +750,8 @@ footer {
 @media (max-width: 720px) {
   .site-header, footer, .hero, .section { width: min(100% - 36px, 1180px); }
   .site-header { height: 72px; padding: 0; }
-  .logo-brand { width: 108px; height: 52px; }
-  .logo-brand-img { width: 122px; height: 122px; left: -8.5px; top: -27.6px; }
+  .logo-brand { width: 130px; height: 46px; }
+  .logo-brand-img { width: 144px; height: 144px; left: -10px; top: -43.4px; }
   .desktop-nav { display: none; }
   .menu-toggle { display: block; }
   .site-header.nav-open { position: relative; }
