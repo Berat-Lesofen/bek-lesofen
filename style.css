@@ -61,28 +61,16 @@ footer {
   text-decoration: none;
   line-height: 0;
 }
-.logo-brand {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  width: 178px;
-  height: 62px;
-  overflow: hidden;
-  line-height: 0;
+.logo-navbar-img {
+  display: block;
+  height: 52px;
+  width: auto;
+  max-height: 52px;
+  object-fit: contain;
   transition: transform .25s cubic-bezier(0.16, 1, 0.3, 1), filter .25s ease, opacity .25s ease;
-}
-.logo-brand-img {
-  position: absolute;
-  width: 194px;
-  height: 194px;
-  left: -13.4px;
-  top: -58.5px;
-  max-width: none;
-  clip-path: polygon(0% 0%, 100% 0%, 100% 62%, 42% 62%, 42% 100%, 0% 100%);
-  pointer-events: none;
   user-select: none;
 }
-.logo:hover .logo-brand {
+.logo:hover .logo-navbar-img {
   transform: translateY(-1px);
   filter: drop-shadow(0 2px 10px rgba(242, 121, 93, 0.22));
 }
@@ -750,8 +738,7 @@ footer {
 @media (max-width: 720px) {
   .site-header, footer, .hero, .section { width: min(100% - 36px, 1180px); }
   .site-header { height: 72px; padding: 0; }
-  .logo-brand { width: 130px; height: 46px; }
-  .logo-brand-img { width: 144px; height: 144px; left: -10px; top: -43.4px; }
+  .logo-navbar-img { height: 38px; max-height: 38px; }
   .desktop-nav { display: none; }
   .menu-toggle { display: block; }
   .site-header.nav-open { position: relative; }
@@ -828,7 +815,7 @@ footer {
   .article-image:hover img { transform: none; }
   .hero-profile:hover .hero-avatar-frame { transform: none; box-shadow: none; }
   .logo:hover .logo-frame { transform: none; }
-  .logo:hover .logo-brand { transform: none; filter: none; }
+  .logo:hover .logo-navbar-img { transform: none; filter: none; }
   .project-card:hover { transform: none; box-shadow: none; background: var(--bg); border-color: var(--line); }
   .project-card:hover .project-preview img { transform: none; }
   .project-card:hover .project-action-button { background: var(--surface); border-color: var(--line); color: var(--text); }
@@ -865,7 +852,7 @@ footer {
   .article-image:hover img { transform: none; }
   .hero-profile:hover .hero-avatar-frame { transform: none; }
   .logo:hover .logo-frame { transform: none; }
-  .logo:hover .logo-brand { transform: none; filter: none; }
+  .logo:hover .logo-navbar-img { transform: none; filter: none; }
   .project-card:hover { transform: none; box-shadow: none; border-color: var(--line); }
   .project-card:hover .project-preview img { transform: none; }
   .project-card:hover .project-action-button { border-color: var(--line); color: var(--text); }
